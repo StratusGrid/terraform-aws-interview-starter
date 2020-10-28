@@ -1,0 +1,5 @@
+region      = "us-west-2"
+name_prefix = "itv"
+env_name    = "dev"
+source_repo = "github.com/StratusGrid/terraform-aws-interview-starter"
+developer   = "my-name"
