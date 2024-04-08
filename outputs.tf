@@ -17,3 +17,8 @@ output "common_tags" {
   description = "tags which should be applied to all taggable objects"
   value       = local.common_tags
 }
+
+output "aws_region" {
+  description = "AWS region"
+  value       = data.aws_region.current
+}
