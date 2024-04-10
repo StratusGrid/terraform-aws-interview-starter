@@ -1,0 +1,64 @@
+header-from: ./.config/header.md
+
+version: ""
+
+formatter: markdown table
+
+name: terraform-aws-iam-role-vmimport
+
+content: |-
+  {{ .Header }}
+
+  # Interview Starter
+
+  This is to provide a foundation which interview candidates can build terraform projects on top of.
+
+  ## Init:
+  Without Role Assumption:
+  ```hcl
+  terraform init -backend-config=./init-tfvars/dev.tfvars
+  ```
+
+  With MFA Role Assumption:
+  ```hcl
+  awsudo -u \<profile\> terraform init -backend-config=./init-tfvars/dev.tfvars 
+  ```
+
+  ## Apply:
+  Without Role Assumption:
+  ```hcl
+  terraform apply -var-file ./apply-tfvars/dev.tfvars
+  ```
+
+  With MFA Role Assumption:
+  ```hcl
+  awsudo -u \<profile\> terraform apply -var-file ./apply-tfvars/dev.tfvars
+  ```
+
+  ## Tools to use
+  - awsudo
+  - tfenv (if using multiple versions of terraform)
+
+ 
+  ---
+  {{ .Requirements }}
+  {{ .Resources }}
+  {{ .Inputs }}
+  {{ .Outputs }}
+  ---
+  Note, manual changes to the README will be overwritten when the documentation is updated. To update the documentation, run `terraform-docs -c .config/.terraform-docs.yml`
+sections:
+  show:
+    - header
+    - requirements
+    - resources
+    - inputs
+    - outputs
+
+sort:
+  enabled: true
+  by: name
+
+output:
+  file: README.md
+  mode: replace
